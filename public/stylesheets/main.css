@@ -148,3 +148,7 @@ body {
 .new-recipe-input {
   width: 30%;
 }
+
+.flash-error {
+  color: red;
+}

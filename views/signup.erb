@@ -11,9 +11,11 @@
   <p>Email Address</p>
   <input type="text" name="email" placeholder="Email Address" class = signup-input>
 
+  <p class="flash-error">
   <% if flash[:error] %>
     <%= flash[:error] %>
   <% end  %>
+  </p>
 
   <p>Password</p>
   <input type="password" name="password" placeholder="Password" class = signup-input>

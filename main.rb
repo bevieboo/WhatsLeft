@@ -39,9 +39,9 @@ post '/login' do
   user = User.find_by(email: params[:email])
   if user && user.authenticate(params[:password])
     session[:user_id] = user.id
-    puts '==============================================='
+    puts '==========================================='
     puts 'LOGGED IN'
-    puts '==============================================='
+    puts '==========================================='
     redirect to '/'
   else
     erb :index
@@ -69,11 +69,8 @@ post '/signup' do
     user.save
     redirect to '/'
   else
-    user.email = params[:email]
+    flash[:error] = "Email already exists."
     redirect to '/signup'
-    puts '==============================================='
-    puts "Email already exists."
-    puts '==============================================='
   end
   erb :signup
 end
