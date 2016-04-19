@@ -18,7 +18,7 @@ CREATE TABLE recipes (
   prep_time INTEGER NOT NULL,
   cook_time INTEGER NOT NULL,
   servings INTEGER NOT NULL,
-  ingredients VARCHAR(5000) NOT NULL,
+  -- ingredients VARCHAR(5000) NOT NULL,
   directions VARCHAR(5000),
   user_id INTEGER
 );
@@ -36,3 +36,7 @@ CREATE TABLE ingredient_recipes (
   ingredient_id integer
   -- recipe_id INTEGER
 );
+
+DROP TABLE recipes;
+DROP TABLE ingredients;
+DROP TABLE ingredient_recipes;
