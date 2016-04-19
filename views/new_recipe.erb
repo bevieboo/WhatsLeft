@@ -1,0 +1,39 @@
+ADD NEW RECIPE
+</br></br>
+
+<form class="new-recipe-form" action="/recipes" method="post">
+  <label for="">Name of recipe</label>
+  <input type="text" name="recipe_name" class="new-recipe-input">
+  </br></br>
+
+  <label for="">Difficulty</label>
+    <select name="difficulty">
+      <option value="easy">Easy</option>
+      <option value="moderate">Moderate</option>
+      <option value="hard">Hard</option>
+    </select>
+  </br></br>
+
+  <label for="">Preparation Time</label>
+  <input type="text" name="prep_time" placeholder="In minutes" class="new-recipe-input">
+  </br></br>
+
+  <label for="">Cook Time</label>
+  <input type="text" name="cook_time" placeholder="In minutes" class="new-recipe-input">
+  </br></br>
+
+  <label for="">Servings</label>
+  <input type="text" name="servings" class="new-recipe-input">
+  </br></br>
+
+  <label for="">Ingredients</label>
+  <textarea name="ingredients_name" placeholder="Enter each ingredient in a new line" class="new-recipe-input"></textarea>
+  </br></br>
+
+  <label for="">Directions</label>
+  <textarea name="directions" placeholder="Enter each step in a new line" class="new-recipe-input"></textarea>
+  </br></br>
+
+  <button>Add new recipe</button>
+
+</form>

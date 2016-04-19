@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World</title>
+  <link rel='stylesheet' href='/stylesheets/main.css'>
+</head>
+<body>
+
+  <% if logged_in? %>
+
+    <div class="display-log">
+      <a href="/user" class="username"><%= current_user.first_name %></a>
+
+      <form action="/login" method="post">
+        <input type="hidden" value="delete" name="_method">
+        <button class="logout-btn">Log Out</button>
+      </form>
+    </div>
+
+  <% else %>
+
+    <div class="login-popup-wrap">
+      <form class="login-popup" action="/login" method="post">
+        <input type="text" name="email" placeholder="Email Address" class="login-email">
+        <input type="password" name="password" placeholder="Password" class="login-password">
+        <button>Log In</button>
+      </form>
+    </div>
+
+  <% end %>
+
+  <%= yield %>
+
+  <script src="/javascripts/jquery-1.12.2.min.js"></script>
+  <script src="/javascripts/application.js"></script>
+</body>

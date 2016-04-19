@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: helvetica;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.navigation ul {
+  padding: 0;
+  text-align: center;
+  margin: 0;
+}
+
+.navigation li {
+  display: inline-block;
+  list-style-type: none;
+  padding: 20px 35px;
+  margin: 0 auto;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.login {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px 35px;
+  margin: 0 auto;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.search-bar {
+  margin: 100px auto;
+  text-align: center;
+}
+
+.login-popup-wrap {
+  position: absolute;
+  top: 0;
+  right: 250px;
+  display: none;
+  background-color: white;
+}
+
+.login-popup-wrap h2 {
+  margin: -6px 0 20px 0;
+}
+
+.login-popup {
+  text-align: left;
+  padding-left: 5px;
+  padding: 20px 35px;
+}
+
+.btn-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.login-btn, .signup-btn {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  padding: 20px 35px;
+}
+
+.login-email, .login-password {
+  width: 200px;
+}
+
+.signup-form {
+  text-align: center;
+  width: 40%;
+  border: 1px solid grey;
+  margin: 0 auto;
+}
+
+.fields {
+  text-align: left;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.login {
+  background-color: black;
+  color: white;
+}
+
+.hvr-bubble-top {
+  display: none;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+.hvr-bubble-top:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  border-style: solid;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  left: calc(50% - 10px);
+  top: 0;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #e1e1e1 transparent;
+}
+.hvr-bubble-top:hover:before, .hvr-bubble-top:focus:before, .hvr-bubble-top:active:before {
+  -webkit-transform: translateY(-10px);
+  transform: translateY(-10px);
+}
+
+.display-log {
+  width: 100%;
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+
+.username, .logout-btn {
+  margin: 20px;
+}
+
+.user-list {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.new-recipe-form {
+  margin: 0 auto;
+}
+
+.new-recipe-input {
+  width: 30%;
+}
