@@ -12,8 +12,8 @@
   <input type="text" name="email" placeholder="Email Address" class = signup-input>
 
   <p class="flash-error">
-  <% if flash[:error] %>
-    <%= flash[:error] %>
+  <% if flash.now[:error] %>
+    <%= flash.now[:error] %>
   <% end  %>
   </p>
 

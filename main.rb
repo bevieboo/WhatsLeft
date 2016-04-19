@@ -69,8 +69,7 @@ post '/signup' do
     user.save
     redirect to '/'
   else
-    flash[:error] = "Email already exists."
-    redirect to '/signup'
+    flash.now[:error] = "Email already exists."
   end
   erb :signup
 end
