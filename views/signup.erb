@@ -1,5 +1,7 @@
 <h1>What's Left</h1>
 
+<%= @user.errors.to_json %>
+
 <form class="signup-form" id="form-register" action="/signup" method="post" enctype="multipart/form-data">
 
   <p>First Name</p>
@@ -24,7 +26,7 @@
   <input type="password" name="password" placeholder="Password" class = signup-input id="register-password">
 
   <p>Confirm Password</p>
-  <input type="password" name="password_confirm" placeholder="Confirm Password" class = signup-input id="register-pass-confirm">
+  <input type="password" name="password_confirmation" placeholder="Confirm Password" class = signup-input id="register-pass-confirm">
 
   <p class="flash-error">
     <% if flash.now[:error2] %>
