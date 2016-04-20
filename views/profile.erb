@@ -9,3 +9,7 @@
   <li>List of Recipes made</li>
 </ul>
 </div>
+
+<% @recipes.each do |recipe| %>
+  <%= recipe.name %>
+<% end %>

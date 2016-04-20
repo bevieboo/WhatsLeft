@@ -10,7 +10,7 @@
   <% if logged_in? %>
 
     <div class="display-log">
-      <a href="/user" class="username"><%= current_user.first_name %></a>
+      <a href="/profile/<%= session[:user_id] %>" class="username"><%= current_user.first_name %></a>
 
       <form action="/login" method="post">
         <input type="hidden" value="delete" name="_method">

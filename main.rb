@@ -31,8 +31,11 @@ get '/' do
   erb :index
 end
 
-get '/user' do
-  erb :user
+get '/profile/:id' do
+  # @user_id = session[:user_id]
+  @recipes = Recipe.where(user_id: params[:id])
+  puts @recipes
+  erb :profile
 end
 
 post '/login' do
@@ -63,6 +66,8 @@ post '/signup' do
   user.last_name = params[:last_name]
   if params[:password] == params[:password_confirm]
     user.password = params[:password]
+  else
+    flash.now[:error2] = "Oops, that’s not the same password as the first one."
   end
   if !User.exists?(email: params[:email])
     user.email = params[:email]
@@ -103,7 +108,6 @@ end
 get '/recipes/new' do
   redirect to '/login' unless logged_in?
   @recipes = Recipe.all
-
   erb :new_recipe
 end
 
@@ -111,4 +115,4 @@ get '/results' do
   erb :results
 end
 
-binding.pry
+# binding.pry

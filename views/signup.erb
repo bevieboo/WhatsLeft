@@ -12,9 +12,9 @@
   <input type="text" name="email" placeholder="Email Address" class = signup-input>
 
   <p class="flash-error">
-  <% if flash.now[:error] %>
-    <%= flash.now[:error] %>
-  <% end  %>
+    <% if flash.now[:error] %>
+      <%= flash.now[:error] %>
+    <% end  %>
   </p>
 
   <p>Password</p>
@@ -23,6 +23,12 @@
   <p>Confirm Password</p>
   <input type="password" name="password_confirm" placeholder="Confirm Password" class = signup-input>
 
-  <p><button>Log In</button></p>
+  <p class="flash-error">
+    <% if flash.now[:error2] %>
+      <%= flash.now[:error2] %>
+    <% end  %>
+  </p>
+
+  <p><button>Create Account</button></p>
 
 </form>
