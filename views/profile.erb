@@ -2,6 +2,7 @@
 <div class="user-list">
 <ul>
   <li>Profile Photo</li>
+  <img src=" <%= @user_profile.first.img_url %>" class="user-avatar">
   <li>Name</li>
   <li>Count of recipes made</li>
   <li><a href="/recipes/new">Add a recipe</a></li>
@@ -10,6 +11,16 @@
 </ul>
 </div>
 
-<% @recipes.each do |recipe| %>
-  <%= recipe.name %>
+<% if @recipes.length == 1 %>
+
+  <a href="/recipes/<%= @recipes.first.id %>"> <%= @recipes.first.name %> </a>
+
+<% elsif @recipes.length > 1 %>
+
+  <% @recipes.each do |recipe| %>
+    <a href="/recipes/<%= recipe.id %>">
+      <%= recipe.name %>
+    </a>
+  <% end %>
+
 <% end %>

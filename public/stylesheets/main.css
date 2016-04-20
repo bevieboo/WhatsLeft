@@ -40,10 +40,11 @@ body {
 
 .login-popup-wrap {
   position: absolute;
-  top: 0;
-  right: 250px;
+  top: 20%;
+  right: 1%;
   display: none;
-  background-color: white;
+  background-color: #F7F8FA;
+  /*border: 1px solid lightgrey;*/
 }
 
 .login-popup-wrap h2 {
@@ -62,17 +63,53 @@ body {
   right: 0;
 }
 
+.user-avatar {
+  width: 200px;
+  height: 200px;
+}
+
 .login-btn, .signup-btn {
   display: inline-block;
   background-color: black;
   color: white;
   padding: 20px 35px;
   border-radius: 20px;
-
 }
 
 .login-email, .login-password {
   width: 200px;
+}
+
+.search-bar {
+  text-align: center;
+  padding: 40px;
+  margin: 0 auto;
+}
+
+.search-input {
+  height: 60px;
+  width: 350px;
+  padding: 0 20px;
+  display: inline-block;
+  margin-right: -4px;
+  border: 0;
+}
+
+input.search-input {
+  border: 1px solid lightgrey;
+  padding: 10px;
+  font-size: 18px;
+  background: rgba(255,255,255,0.75);
+}
+
+.search-button {
+  width: 60px;
+  height: 60px;
+  margin: 0;
+  background-image: url("/stylesheets/images/search-icon-whitegrey.png");
+  background-size: cover;
+  border: 0;
+  vertical-align: top;
 }
 
 .signup-form {

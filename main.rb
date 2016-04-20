@@ -2,6 +2,7 @@ require 'pry'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/flash'
+require 'carrierwave'
 
 require './console'
 require './db_config'
@@ -32,9 +33,8 @@ get '/' do
 end
 
 get '/profile/:id' do
-  # @user_id = session[:user_id]
+  @user_profile = User.where(id: params[:id])
   @recipes = Recipe.where(user_id: params[:id])
-  puts @recipes
   erb :profile
 end
 
@@ -64,6 +64,7 @@ post '/signup' do
   user = User.new
   user.first_name = params[:first_name]
   user.last_name = params[:last_name]
+  user.img_url = params[:image]
   if params[:password] == params[:password_confirm]
     user.password = params[:password]
   else
@@ -79,9 +80,17 @@ post '/signup' do
   erb :signup
 end
 
+get '/recipes/new' do
+  redirect to '/login' unless logged_in?
+  erb :new_recipe
+end
+
+get '/recipes/:id' do
+  erb :show_recipe
+end
+
 get '/recipes' do
-  @recipes = Recipe.all
-  erb :recipes
+  erb :show_recipe
 end
 
 post '/recipes' do
@@ -103,12 +112,6 @@ post '/recipes' do
   recipe.user_id = session[:user_id]
   recipe.save
   redirect to '/recipes'
-end
-
-get '/recipes/new' do
-  redirect to '/login' unless logged_in?
-  @recipes = Recipe.all
-  erb :new_recipe
 end
 
 get '/results' do

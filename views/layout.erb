@@ -22,8 +22,8 @@
 
     <div class="login-popup-wrap">
       <form class="login-popup" action="/login" method="post">
-        <input type="text" name="email" placeholder="Email Address" class="login-email">
-        <input type="password" name="password" placeholder="Password" class="login-password">
+        <input type="text" name="email" placeholder="Email Address" class="login-email"> </br> </br>
+        <input type="password" name="password" placeholder="Password" class="login-password"> </br> </br>
         <button>Log In</button>
       </form>
     </div>
@@ -33,5 +33,6 @@
   <%= yield %>
 
   <script src="/javascripts/jquery-1.12.2.min.js"></script>
+  <script src="/javascripts/jquery.validate.min.js"></script>
   <script src="/javascripts/application.js"></script>
 </body>

@@ -1,5 +1,6 @@
 require 'pry'
 require 'active_record'
+require 'carrierwave'
 
 ActiveRecord::Base.logger = Logger.new(STDERR)
 

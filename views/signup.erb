@@ -1,12 +1,15 @@
 <h1>What's Left</h1>
 
-<form class="signup-form" action="/signup" method="post">
+<form class="signup-form" id="form-register" action="/signup" method="post" enctype="multipart/form-data">
 
   <p>First Name</p>
   <input type="text" name="first_name" placeholder="First Name" class = signup-input>
 
   <p>Last Name</p>
   <input type="text" name="last_name" placeholder="Last Name" class = signup-input>
+
+  <p>Avatar</p>
+  <input type="file" name="image">
 
   <p>Email Address</p>
   <input type="text" name="email" placeholder="Email Address" class = signup-input>
@@ -18,10 +21,10 @@
   </p>
 
   <p>Password</p>
-  <input type="password" name="password" placeholder="Password" class = signup-input>
+  <input type="password" name="password" placeholder="Password" class = signup-input id="register-password">
 
   <p>Confirm Password</p>
-  <input type="password" name="password_confirm" placeholder="Confirm Password" class = signup-input>
+  <input type="password" name="password_confirm" placeholder="Confirm Password" class = signup-input id="register-pass-confirm">
 
   <p class="flash-error">
     <% if flash.now[:error2] %>

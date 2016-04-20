@@ -37,6 +37,9 @@ CREATE TABLE ingredient_recipes (
   -- recipe_id INTEGER
 );
 
+ALTER TABLE users ADD img_url VARCHAR(500);
+ALTER TABLE recipes ADD img_url VARCHAR(500);
+
 DROP TABLE recipes;
 DROP TABLE ingredients;
 DROP TABLE ingredient_recipes;
