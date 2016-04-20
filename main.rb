@@ -97,7 +97,6 @@ post '/recipes' do
   # raise params.inspect
   recipe = Recipe.new
   recipe.name = params[:recipe_name]
-  recipe.difficulty = params[:difficulty]
   recipe.prep_time = params[:prep_time]
   recipe.cook_time = params[:cook_time]
   recipe.servings = params[:servings]

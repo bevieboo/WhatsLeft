@@ -2,7 +2,11 @@
 <div class="user-list">
 <ul>
   <li>Profile Photo</li>
-  <img src=" <%= @user_profile.first.img_url %>" class="user-avatar">
+  <% if @user_profile.first.img_url.blank? %>
+    <img src="/stylesheets/images/Icon-user.png" class="user-avatar">
+  <% else %>
+    <img src=" <%= @user_profile.first.img_url %>" class="user-avatar">
+  <% end %>
   <li>Name</li>
   <li>Count of recipes made</li>
   <li><a href="/recipes/new">Add a recipe</a></li>

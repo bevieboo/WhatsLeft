@@ -13,7 +13,6 @@ CREATE TABLE users (
 CREATE TABLE recipes (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(200) NOT NULL,
-  difficulty VARCHAR(200),
   made_count INTEGER,
   prep_time INTEGER NOT NULL,
   cook_time INTEGER NOT NULL,
