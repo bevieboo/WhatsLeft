@@ -1,6 +1,6 @@
 console.log('hello');
 
-$('.login-btn').click(function() {
+$('.js-login-btn').click(function() {
   $('.login-popup-wrap').toggle();
 })
 

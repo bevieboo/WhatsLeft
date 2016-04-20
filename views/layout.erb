@@ -4,31 +4,56 @@
   <meta charset="UTF-8">
   <title>Hello World</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
-  <% if logged_in? %>
+  <div class="header-wrapper">
 
-    <div class="display-log">
-      <a href="/profile/<%= session[:user_id] %>" class="username"><%= current_user.first_name %></a>
+    <img src="/stylesheets/images/logo.png" class="logo">
 
-      <form action="/login" method="post">
+    <ul class="navigation">
+      <li class="header-link">Ingredients</li>
+      <li class="header-link">Recipes</li>
+
+      <% if logged_in? %>
+      <% else %>
+        <li class="header-link js-login-btn">Log In </li>
+        <li class="header-link"> <a href="/signup">Sign Up</a></li>
+      <% end %>
+
+    </ul>
+
+
+      <!-- Avatar & Username -->
+      <!-- <div class="display-log">
+        <img src="/stylesheets/images/Icon-user.png">
+        <a href="/profile/<%= session[:user_id] %>" class="username">Hello, <%#= current_user.first_name[0] + current_user.last_name[0]%></a>
+      </div> -->
+
+      <!-- Log Out Button -->
+      <!-- <form action="/login" method="post">
         <input type="hidden" value="delete" name="_method">
         <button class="logout-btn">Log Out</button>
-      </form>
-    </div>
+      </form> -->
 
-  <% else %>
 
-    <div class="login-popup-wrap">
-      <form class="login-popup" action="/login" method="post">
-        <input type="text" name="email" placeholder="Email Address" class="login-email"> </br> </br>
-        <input type="password" name="password" placeholder="Password" class="login-password"> </br> </br>
-        <button>Log In</button>
-      </form>
-    </div>
+      <!-- Log In and Sign Up buttons -->
+      <!-- <div class="btn-wrapper">
 
-  <% end %>
+      </div> -->
+
+      <!-- Popup for User login -->
+      <div class="login-popup-wrap">
+        <form class="login-popup" action="/login" method="post">
+          <input type="text" name="email" placeholder="Email Address" class="login-email"> </br> </br>
+          <input type="password" name="password" placeholder="Password" class="login-password"> </br> </br>
+          <button class="button">Log In</button>
+        </form>
+      </div>
+
+
+  </div>
 
   <%= yield %>
 
