@@ -1,39 +1,31 @@
-<h1>What's Left</h1>
+<h1 class="signup-title">Sign Up</h1>
 
-<%= @user.errors.to_json %>
+<%= @user.errors.to_json if @user.errors.any? %>
 
 <form class="signup-form wrap-box" id="form-register" action="/signup" method="post" enctype="multipart/form-data">
 
-  <p>First Name</p>
-  <input type="text" name="first_name" placeholder="First Name" class = signup-input>
+  <div class="input-half">
+    <label>First Name</label>
+    <input type="text" name="first_name" placeholder="First Name" class = signup-input>
+  </div>
 
-  <p>Last Name</p>
-  <input type="text" name="last_name" placeholder="Last Name" class = signup-input>
+  <div class="input-half last">
+    <label>Last Name</label>
+    <input type="text" name="last_name" placeholder="Last Name" class = signup-input>
+  </div>
 
-  <p>Avatar</p>
-  <input type="file" name="image">
+  <label>Avatar</label>
+  <input type="file" name="image" class="signup-input">
 
-  <p>Email Address</p>
+  <label>Email Address</label>
   <input type="text" name="email" placeholder="Email Address" class = signup-input>
 
-  <p class="flash-error">
-    <% if flash.now[:error] %>
-      <%= flash.now[:error] %>
-    <% end  %>
-  </p>
-
-  <p>Password</p>
+  <label>Password</label>
   <input type="password" name="password" placeholder="Password" class = signup-input id="register-password">
 
-  <p>Confirm Password</p>
+  <label>Confirm Password</label>
   <input type="password" name="password_confirmation" placeholder="Confirm Password" class = signup-input id="register-pass-confirm">
 
-  <p class="flash-error">
-    <% if flash.now[:error2] %>
-      <%= flash.now[:error2] %>
-    <% end  %>
-  </p>
-
-  <p><button>Create Account</button></p>
+  <button class="button">Create Account</button>
 
 </form>
