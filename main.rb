@@ -104,7 +104,7 @@ get '/recipes/:id' do
 end
 
 get '/recipes' do
-  erb :show_recipe
+  erb :recipes_main
 end
 
 post '/recipes' do
@@ -142,6 +142,16 @@ post '/recipes' do
   recipe.user_id = session[:user_id]
   recipe.save
   redirect to '/recipes'
+
+end
+
+get '/recipes/:id/edit' do
+  @recipe_edit = Recipe.find(params[:id])
+  @ingredients_edit = IngredientRecipe.where(recipe_id: params[:id])
+  erb :edit_recipe
+end
+
+put '/recipes/:id' do
 
 end
 

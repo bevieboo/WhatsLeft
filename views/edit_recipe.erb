@@ -1,0 +1,51 @@
+<h1 class="page-title">Edit Recipe</h1>
+
+<form action="/recipes/<%= @recipe_edit.id %>" method="post" class="new-recipe-form wrap-box group">
+  <input type="hidden" value="put" name="_method">
+
+  <div>
+    <label for="">Name</label>
+    <input type="text" name="name" value="<%= @recipe_edit.name %>">
+  </div>
+
+  <div>
+    <% if @recipe_edit.img_url.blank? %>
+    Upload an image
+    <% else %>
+    <img src="<%= @recipe_edit.img_url %>">
+    <% end %>
+  </div>
+
+  <div>
+    <label for="">Prep Time</label>
+    <input type="text" name="prep_time" value="<%= @recipe_edit.prep_time %>">
+  </div>
+
+  <div>
+    <label for="">Cook Time</label>
+    <input type="text" name="cook_time" value="<%= @recipe_edit.cook_time %>">
+  </div>
+
+  <div>
+    <label for="">Serving Size</label>
+    <input type="text" name="servings" value="<%= @recipe_edit.servings %>">
+  </div>
+
+  <div>
+    <label for="">Ingredients</label>
+    <textarea name="ingredients">
+      <% @ingredients_edit.each do |ingredient_recipe| %>
+        <%= ingredient_recipe.ingredient.name %>
+      <% end %>
+    </textarea>
+  </div>
+
+  <div>
+    <label for="">Directions</label>
+    <textarea name="directions"><%= @recipe_edit.directions %></textarea>
+
+  </div>
+
+  <button>Submit changes</button>
+
+</form>

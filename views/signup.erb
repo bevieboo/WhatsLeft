@@ -1,4 +1,4 @@
-<h1 class="signup-title">Sign Up</h1>
+<h1 class="page-title">Sign Up</h1>
 
 <%= @user.errors.to_json if @user.errors.any? %>
 
@@ -6,25 +6,25 @@
 
   <div class="input-half">
     <label>First Name</label>
-    <input type="text" name="first_name" placeholder="First Name" class = signup-input>
+    <input type="text" name="first_name" placeholder="First Name" class="signup-input">
   </div>
 
   <div class="input-half last">
     <label>Last Name</label>
-    <input type="text" name="last_name" placeholder="Last Name" class = signup-input>
+    <input type="text" name="last_name" placeholder="Last Name" class="signup-input">
   </div>
 
   <label>Avatar</label>
-  <input type="file" name="image" class="signup-input">
+  <input type="file" name="image" class"avatar-input">
 
   <label>Email Address</label>
-  <input type="text" name="email" placeholder="Email Address" class = signup-input>
+  <input type="text" name="email" placeholder="Email Address" class="signup-input">
 
   <label>Password</label>
-  <input type="password" name="password" placeholder="Password" class = signup-input id="register-password">
+  <input type="password" name="password" placeholder="Password" class="signup-input" id="register-password">
 
   <label>Confirm Password</label>
-  <input type="password" name="password_confirmation" placeholder="Confirm Password" class = signup-input id="register-pass-confirm">
+  <input type="password" name="password_confirmation" placeholder="Confirm Password" class="signup-input" id="register-pass-confirm">
 
   <button class="button">Create Account</button>
 

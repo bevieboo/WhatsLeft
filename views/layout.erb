@@ -10,32 +10,33 @@
 
   <div class="header-wrapper">
 
-    <img src="/stylesheets/images/logo.png" class="logo">
+    <a href="/"><img src="/stylesheets/images/logo.png" class="logo"></a>
 
     <ul class="navigation">
-      <li class="header-link">Ingredients</li>
-      <li class="header-link">Recipes</li>
+
+      <li class="header-link"><a href="/recipes">Recipes</a></li>
 
       <% if logged_in? %>
+        <!-- Avatar & Username -->
+          <a href="/profile/<%= session[:user_id] %>" class="header-link login-name"><img src="/stylesheets/images/user.png" class="login-avatar"></a>
+          <a href="/profile/<%= session[:user_id] %>" class="header-link login-name">Hello, <%= current_user.first_name[0] + current_user.last_name[0]%></a>
+
+        <!-- Log Out Button -->
+        <form action="/login" method="post" class="logout-form">
+          <input type="hidden" value="delete" name="_method">
+          <button class="logout-button">Log Out</button>
+        </form>
+
       <% else %>
+
         <li class="header-link js-login-btn">Log In </li>
         <li class="header-link"> <a href="/signup">Sign Up</a></li>
+
       <% end %>
 
     </ul>
 
 
-      <!-- Avatar & Username -->
-      <!-- <div class="display-log">
-        <img src="/stylesheets/images/Icon-user.png">
-        <a href="/profile/<%= session[:user_id] %>" class="username">Hello, <%#= current_user.first_name[0] + current_user.last_name[0]%></a>
-      </div> -->
-
-      <!-- Log Out Button -->
-      <!-- <form action="/login" method="post">
-        <input type="hidden" value="delete" name="_method">
-        <button class="logout-btn">Log Out</button>
-      </form> -->
 
 
       <!-- Log In and Sign Up buttons -->

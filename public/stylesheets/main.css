@@ -11,12 +11,15 @@ html, body {
   background-color: #F9F9F9;
 }
 
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
 input {
   width: 100%;
-  padding: 0 20px;
   display: inline-block;
   margin-right: -4px;
-  border: 0px solid;
   border: 1px solid lightgrey;
   padding: 10px;
   font-size: 14px;
@@ -92,7 +95,7 @@ input:focus {
   top: 60px;
   right: 0;
   display: none;
-  background-color: #F7F8FA;
+  background-color: #F9F9F9;
   border: 1px solid #DADADA;
   z-index: 2;
 }
@@ -123,7 +126,7 @@ input:focus {
   font-size: 14px;
   list-style-type: none;
   text-align: center;
-  margin-left: 20px;
+  margin-left: 30px;
   cursor: pointer;
 }
 
@@ -179,7 +182,7 @@ input:focus {
   text-align: left;
 }
 
-.wrap-box .signup-input {
+.wrap-box, .signup-input, .avatar-input {
   margin-top: 10px;
 }
 
@@ -188,7 +191,7 @@ input:focus {
   margin: 0 auto;
 }
 
-.signup-title {
+.page-title {
   margin: 30px 0;
 }
 
@@ -259,17 +262,31 @@ input:focus {
   display: inline-block;
 }
 
-.display-log img {
-  width: 10%;
+.login-avatar {
+  width: 16px;
+  margin-left: 30px;
 }
-
+.login-name {
+  margin-left: 5px;
+}
 .username {
   vertical-align: top;
   line-height: 36px;
   padding: 0 8px;
 }
+.logout-form {
+  display: inline;
+  margin-left: 10px;
+}
 .logout-button {
-  display: inline-block;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 5px 15px;
+  margin-left: 5px;
+  background-color: #3BB300;
+  border-radius: 6px;
+  color: white;
 }
 
 .user-list {
@@ -279,12 +296,68 @@ input:focus {
 
 .new-recipe-form {
   margin: 0 auto;
+  width: 90%;
+}
+.new-recipe-left {
+  float: left;
+  width: 30%;
+  margin: 0px 15px;
 }
 
-.new-recipe-input {
-  width: 30%;
+.new-recipe-left .avatar-input {
+  background-image: url('/stylesheets/images/camera.png');
+  width: 100%;
+  height: 123px;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: center 25px;
+}
+
+.new-recipe-right {
+  float: right;
+  width: 60%;
+  margin: 0px 15px;
 }
 
 .flash-error {
   color: red;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.add-button-wrapper {
+  width: 100%;
+  float: right;
+}
+
+.ingredients-input, .directions-input {
+  height: 9rem;
+  width: 100%;
+  border-radius: 6px;
+  line-height: 1.5rem;
+  border: 1px solid lightgrey;
+  padding: 10px;
+  font-size: 14px;
+  background: rgba(255,255,255,0.75);
+  border-radius: 6px;
+  outline: 0;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.directions-input {
+  height: 12rem;
+}
+
+.prep-time, .cook-time {
+  width: 45%;
+  display: inline-block;
+}
+
+.cook-time {
+  margin-left: 8%;
 }
