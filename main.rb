@@ -1,7 +1,6 @@
 # require 'pry'
 require 'sinatra'
 # require 'sinatra/reloader'
-require 'sinatra/flash'
 require 'carrierwave'
 
 require './console'
