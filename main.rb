@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'carrierwave'
 
-require './console'
 require './db_config'
 require './models/user'
 require './models/ingredient'
