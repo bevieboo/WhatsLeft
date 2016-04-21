@@ -1,1 +1,58 @@
-everything in recipe table
+<h1 class="page-title"><%= @recipe.name %></h1>
+
+<div class="recipe-form wrap-box group">
+
+  <div class="new-recipe-left">
+
+    <% if @recipe.img_url.blank? %>
+      <img src="/stylesheets/images/recipe_default.png"  class="default-recipe-img">
+    <% else %>
+      <img src="<%= @recipe.img_url %>">
+    <% end %>
+
+  </div>
+
+  <div class="show-recipe-right">
+
+    <div class="prep-time">
+      <label for="">Prep Time</label>
+      <input type="text" name="prep_time" placeholder="In minutes" class="signup-input" value="<%= @recipe.prep_time %> minutes">
+    </div>
+
+    <div class="cook-time">
+      <label for="">Cook Time</label>
+      <input type="text" name="cook_time" placeholder="In minutes" class="signup-input" value="<%= @recipe.cook_time %> minutes">
+    </div>
+
+    <div>
+      <label for="">Serving Size</label></br>
+      <input type="text" name="servings" class="servings signup-input" value="<%= @recipe.servings %> servings">
+    </div>
+
+  </div>
+
+  <div class="recipe-info-wrap">
+    <div class="ingredient-list">
+      <h3>Ingredients</h3>
+      <% @ingredients.each do |ingredient| %>
+        <ul>
+          <li>
+            <%= ingredient.ingredient.name %>
+          </li>
+        </ul>
+      <% end  %>
+    </div>
+    <div class="direction-list">
+      <h3>Directions</h3>
+      <% @directions = @recipe.directions.split("\r\n") %>
+      <ol>
+      <% @directions.each do |step| %>
+          <li>
+              <%= step %>
+          </li>
+      <% end %>
+    </ol>
+    </div>
+  </div>
+
+</div>

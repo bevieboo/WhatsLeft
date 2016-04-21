@@ -335,6 +335,10 @@ input:focus {
   float: left;
 }
 
+.recipe-form {
+  margin: 0 auto;
+  width: 60%;
+}
 .new-recipe-form {
   margin: 0 auto;
   width: 90%;
@@ -342,6 +346,9 @@ input:focus {
 .edit-recipe-form {
   margin: 0 auto;
   width: 60%;
+}
+.info-wrap {
+  float: right;
 }
 .new-recipe-left {
   float: left;
@@ -376,7 +383,15 @@ input:focus {
   width: 60%;
   margin: 0px 15px;
 }
+.show-recipe-right {
+  float: right;
+  width: 50%;
+  margin: 40px 40px;
+}
 
+.servings {
+  width: 45%;
+}
 .flash-error {
   color: red;
 }
@@ -456,4 +471,38 @@ input:focus {
   width: 100%;
   float: left;
   margin-top: 20px;
+}
+
+.default-recipe-img {
+  width: 250px;
+  height: 250px;
+  float: left;
+}
+
+.recipe-info-wrap {
+  width: 100%;
+  float: left;
+  padding: 0 30px;
+}
+
+.ingredient-list {
+  width: 30%;
+  float: left;
+  padding: 0 20px;
+}
+.direction-list {
+  width: 60%;
+  float: right;
+  padding: 0 20px;
+}
+.direction-list li {
+ margin-bottom: 20px;
+}
+.direction-list ol {
+  padding-left: 20px;
+  line-height: 1.5;
+}
+.ingredient-list ul {
+  padding-left: 20px;
+  line-height: 1.5;
 }

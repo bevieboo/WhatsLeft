@@ -25,9 +25,9 @@ CREATE TABLE recipes (
 CREATE TABLE ingredients (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(200) NOT NULL
-  -- recipe_id INTEGER
-  -- recipe2_id
 );
+-- recipe_id INTEGER
+-- recipe2_id
 
 CREATE TABLE ingredient_recipes (
   id SERIAL4 PRIMARY KEY,

@@ -30,6 +30,8 @@
 
   <a href="/recipes/<%= @recipes.first.id %>"> <%= @recipes.first.name %> </a>
 
+  <img src="<%= @recipes.first.img_url %>" alt="">
+
 <% elsif @recipes.length > 1 %>
 
   <% @recipes.each do |recipe| %>

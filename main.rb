@@ -1,7 +1,11 @@
+require 'pry'
 require 'sinatra'
+require 'sinatra/reloader'
+require 'sinatra/flash'
 require 'carrierwave'
 
 require 'active_record'
+require './console'
 require './db_config'
 require './models/user'
 require './models/ingredient'
@@ -123,6 +127,8 @@ get '/recipes/new' do
 end
 
 get '/recipes/:id' do
+  @recipe = Recipe.find(params[:id])
+  @ingredients = IngredientRecipe.where(recipe_id: params[:id])
   erb :show_recipe
 end
 
@@ -134,7 +140,8 @@ post '/recipes' do
   # raise params.inspect
   recipe = Recipe.new
   recipe.name = params[:recipe_name]
-  recipe.img_url = params[:image]
+  recipe.img_url = params[:img_url]
+
   recipe.prep_time = params[:prep_time]
   recipe.cook_time = params[:cook_time]
   recipe.servings = params[:servings]
@@ -164,7 +171,7 @@ post '/recipes' do
   recipe.directions = params[:directions]
   recipe.user_id = session[:user_id]
   recipe.save
-  redirect to '/recipes'
+  redirect to "/recipes/#{ Recipe.last.id } "
 
 end
 
