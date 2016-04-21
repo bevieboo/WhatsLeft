@@ -152,7 +152,43 @@ get '/recipes/:id/edit' do
 end
 
 put '/recipes/:id' do
+  recipe_put = Recipe.find(params[:id])
+  recipe_put.name = (params[:name])
+  recipe_put.img_url = (params[:img_url])
+  recipe_put.prep_time = (params[:prep_time])
+  recipe_put.cook_time = (params[:cook_time])
+  recipe_put.servings = (params[:servings])
+  recipe_put.directions = (params[:directions])
 
+  ingredients_put = IngredientRecipe.where(recipe_id: params[:id])
+
+  if params[:ingredients_name].include?("\r\n")
+    arr_put = params[:ingredients_name].split("\r\n")
+    arr_put.each do |ingredient|
+      if !Ingredient.exists?(name: ingredient)
+        new_ingredient = Ingredient.create name: ingredient
+        ingredients_put.ingredients << new_ingredient
+      else
+        add_ingredient = Ingredient.find_by(name: ingredient)
+        recipe.ingredients << add_ingredient
+      end
+
+    end
+
+  else
+    if !Ingredient.exists?(name: params[:ingredients_name])
+      new_ingredient = Ingredient.create name: params[:ingredients_name]
+      recipe.ingredients << new_ingredient
+    else
+      add_ingredient = Ingredient.find_by(name: params[:ingredients_name])
+      recipe.ingredients << add_ingredient
+    end
+  end
+
+  recipe_put.save
+  ingredients_put.save
+
+  redirect to '/profile'
 end
 
 get '/results' do

@@ -10,9 +10,10 @@
 
   <div>
     <% if @recipe_edit.img_url.blank? %>
-    Upload an image
+      Upload Image
     <% else %>
-    <img src="<%= @recipe_edit.img_url %>">
+      <label for="">Upload New Image</label>
+      <input type="file" name="img_url" value="<%= @recipe_edit.img_url %>" class="avatar-input">
     <% end %>
   </div>
 
@@ -33,16 +34,13 @@
 
   <div>
     <label for="">Ingredients</label>
-    <textarea name="ingredients">
-      <% @ingredients_edit.each do |ingredient_recipe| %>
-        <%= ingredient_recipe.ingredient.name %>
-      <% end %>
+    <textarea name="ingredients_name" class="ingredients-input"><%= @ingredients_edit.map{|i| i.ingredient.name }.join("\n")%>
     </textarea>
   </div>
 
   <div>
     <label for="">Directions</label>
-    <textarea name="directions"><%= @recipe_edit.directions %></textarea>
+    <textarea name="directions" class="directions-input"><%= @recipe_edit.directions %></textarea>
 
   </div>
 

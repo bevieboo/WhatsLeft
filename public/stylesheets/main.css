@@ -119,6 +119,16 @@ input:focus {
 .user-avatar {
   width: 200px;
   height: 200px;
+  border-radius: 50%;
+  border: 1px solid #DADADA;
+}
+
+.user-avatar1 {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px solid #DADADA;
+  padding: 10px;
 }
 
 .header-link {
@@ -289,9 +299,26 @@ input:focus {
   color: white;
 }
 
+.greeting, .edit-button {
+  margin-bottom: 10px;
+}
+
+.edit-button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 5px 15px;
+  background-color: #3BB300;
+  border-radius: 6px;
+  color: white;
+}
+
 .user-list {
-  width: 20%;
-  margin: 0 auto;
+  width: 60%;
+  margin: 30px auto;
+}
+.avatar-wrap {
+  float: left;
 }
 
 .new-recipe-form {
@@ -302,6 +329,11 @@ input:focus {
   float: left;
   width: 30%;
   margin: 0px 15px;
+}
+.user-info-wrap {
+  float: right;
+  width: 50%;
+  text-align: left;
 }
 
 .new-recipe-left .avatar-input {
@@ -331,7 +363,8 @@ input:focus {
 
 .add-button-wrapper {
   width: 100%;
-  float: right;
+  float: left;
+  margin: 0 15px;
 }
 
 .ingredients-input, .directions-input {
@@ -360,4 +393,8 @@ input:focus {
 
 .cook-time {
   margin-left: 8%;
+}
+
+.user-list li {
+  list-style: none;
 }

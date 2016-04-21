@@ -1,18 +1,28 @@
+<div class="user-list group">
 
-<div class="user-list">
-<ul>
-  <li>Profile Photo</li>
-  <% if @user_profile.first.img_url.blank? %>
-    <img src="/stylesheets/images/Icon-user.png" class="user-avatar">
-  <% else %>
-    <img src=" <%= @user_profile.first.img_url %>" class="user-avatar">
-  <% end %>
-  <li>Name</li>
-  <li>Count of recipes made</li>
-  <li><a href="/recipes/new">Add a recipe</a></li>
-  <li>List of Recipes uploaded</li>
-  <li>List of Recipes made</li>
-</ul>
+  <ul>
+    <div class="avatar-wrap">
+      <% if @user_profile.first.img_url.blank? %>
+      <img src="/stylesheets/images/Icon-user.png" class="user-avatar1">
+      <% else %>
+      <img src=" <%= @user_profile.first.img_url %>" class="user-avatar">
+      <% end %>
+    </div>
+
+    <div class="user-info-wrap">
+      <h2 class="greeting">Hey, <%= @user_profile.first.first_name %></h2>
+      <div>
+        <form class="edit-form" action="/profile/<%= @user_profile.first.id %>" method="post">
+          <input type="hidden" value="put" name="_method">
+          <button class="edit-button">Edit Profile</button>
+        </form>
+      </div>
+      <li><a href="/recipes/new">Add a recipe</a></li>
+      <li>Count of recipes made</li>
+      <li>List of Recipes made</li>
+    </div>
+  </ul>
+
 </div>
 
 <% if @recipes.length == 1 %>
