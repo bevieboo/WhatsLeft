@@ -167,8 +167,20 @@ input:focus {
   border: 0;
   border-radius: 6px;
 }
+.delete-button {
+  padding: 10px 20px;
+  background-color: #3BB300;
+  color: white;
+  border: 0;
+  border-radius: 6px;
+  display: inline-block;
+}
 .edit-button-wrapper {
   margin-left: 0;
+  width: 30%;
+  display: inline-block;
+  float: left;
+  margin-top: 25px;
 }
 
 .search-button {
@@ -303,7 +315,7 @@ input:focus {
 }
 
 .greeting, .edit-button {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .edit-button {
@@ -321,14 +333,16 @@ input:focus {
   border: 0;
   cursor: pointer;
   padding: 4px 15px;
-  background-color: #222A3B;
+  background-color: #F77B03;
   border-radius: 6px;
   color: white;
   font-size: 12px;
+  margin-bottom: 20px;
+  display: inline-block;
 }
 
 .user-list {
-  width: 45%;
+  width: 50%;
   margin: 30px auto;
 }
 .avatar-wrap {
@@ -357,7 +371,7 @@ input:focus {
 }
 .user-info-wrap {
   float: right;
-  width: 50%;
+  width: 60%;
   text-align: left;
 }
 .user-info-inner-wrap {
@@ -505,4 +519,28 @@ input:focus {
 .ingredient-list ul {
   padding-left: 20px;
   line-height: 1.5;
+}
+.recipes-list-wrap {
+  width: 60%;
+  margin: 0 auto;
+}
+.recipes-list {
+  position: relative;
+  display: inline-block;
+  width: 30%;
+}
+.recipe-list-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.recipes-icon {
+  background-image: url('/stylesheets/images/edit_icon.png');
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  z-index: 5;
+  background-size: 100%;
+  top: 72%;
+  left: 62%;
 }

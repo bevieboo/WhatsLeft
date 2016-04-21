@@ -171,7 +171,7 @@ post '/recipes' do
   recipe.directions = params[:directions]
   recipe.user_id = session[:user_id]
   recipe.save
-  redirect to "/recipes/#{ Recipe.last.id } "
+  redirect to "/recipes"
 
 end
 

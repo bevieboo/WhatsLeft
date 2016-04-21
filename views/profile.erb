@@ -19,7 +19,7 @@
       </div>
       <div class="user-info-inner-wrap">
         <li>You have contributed <%= Recipe.where(user_id: @user_profile.first.id).count %> recipes!</li>
-        <li>List of Recipes made</li>
+        <li>You have help reduced food wastage _ times!</li>
       </div>
     </div>
   </ul>
@@ -34,10 +34,20 @@
 
 <% elsif @recipes.length > 1 %>
 
-  <% @recipes.each do |recipe| %>
-    <a href="/recipes/<%= recipe.id %>">
-      <p> <%= recipe.name %> </p><a href="/recipes/<%= recipe.id %>/edit">Edit</a>
-    </a>
-  <% end %>
+  <div class=recipes-list-wrap>
+    <% @recipes.each do |recipe| %>
+      <div class='recipes-list'>
+        <a href="/recipes/<%= recipe.id %>">
+          <p> <%= recipe.name %> </p>
+          <% if recipe.img_url.blank? %>
+            <img src="/stylesheets/images/Food-icon-green.png"  class="recipe-list-img">
+          <% else %>
+            <img src="<%= recipe.img_url %>">
+          <% end %>
+          <p><a class="recipes-icon" href="/recipes/<%= recipe.id %>/edit" ></a></p></br>
+        </a>
+      </div>
+    <% end %>
+  </div>
 
 <% end %>

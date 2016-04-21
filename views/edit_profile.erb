@@ -1,50 +1,54 @@
 <h1 class="page-title">Edit Profile</h1>
 
-<form class="edit-profile-form wrap-box group" action="/profile/<%= @user_edit.id %>/edit" method="post" enctype="multipart/form-data">
-  <input type="hidden" value="put" name="_method">
+<div class="edit-profile-form wrap-box group">
 
-  <div class="first_name">
-    <label for="">First Name</label>
-    <input type="text" name="first_name" class="signup-input" value="<%= @user_edit.first_name %>">
-  </div>
+  <form action="/profile/<%= @user_edit.id %>/edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" value="put" name="_method">
 
-  <div class="last_name">
-    <label for="">Last Name</label>
-    <input type="text" name="last_name" class="signup-input" value="<%= @user_edit.last_name %>">
-  </div>
-
-  <div class="profile-avatar-wrap">
-    <div class="profile-avatar-wrap-left">
-      <% if @user_edit.img_url.blank? %>
-        <label for="">Current Image</label>
-        <img src="/stylesheets/images/Icon-user.png" class="avatar-edit">
-      <% else %>
-        <img src="<%= @user_edit.img_url %>" alt="" class="avatar-edit">
-      <% end %>
+    <div class="first_name">
+      <label for="">First Name</label>
+      <input type="text" name="first_name" class="signup-input" value="<%= @user_edit.first_name %>">
     </div>
-    <div class="profile-avatar-wrap-right">
-      <label for="">Upload New Image</label>
-      <input type="file" name="img_url" class="avatar-input">
+
+    <div class="last_name">
+      <label for="">Last Name</label>
+      <input type="text" name="last_name" class="signup-input" value="<%= @user_edit.last_name %>">
     </div>
-  </div>
 
-  <div>
-    <label for="" class="prof-pwd">New Password</label>
-    <input type="password" name="password" class="signup-input" placeholder="Type new password">
-  </div>
+    <div class="profile-avatar-wrap">
+      <div class="profile-avatar-wrap-left">
+        <% if @user_edit.img_url.blank? %>
+          <label for="">Current Image</label>
+          <img src="/stylesheets/images/Icon-user.png" class="avatar-edit">
+        <% else %>
+          <img src="<%= @user_edit.img_url %>" alt="" class="avatar-edit">
+        <% end %>
+      </div>
+      <div class="profile-avatar-wrap-right">
+        <label for="">Upload New Image</label>
+        <input type="file" name="img_url" class="avatar-input">
+      </div>
+    </div>
 
-  <div>
-    <label for="">Confirm Password</label>
-    <input type="password" name="password_confirmation" class="signup-input" placeholder="Confirm new password">
-  </div>
+    <div>
+      <label for="" class="prof-pwd">New Password</label>
+      <input type="password" name="password" class="signup-input" placeholder="Type new password">
+    </div>
 
-  <div class="edit-button-wrapper">
-    <button class="button">Submit Changes</button>
-  </div>
+    <div>
+      <label for="">Confirm Password</label>
+      <input type="password" name="password_confirmation" class="signup-input" placeholder="Confirm new password">
+    </div>
 
-  <form class="" action="/profile/<%= @user_edit.id %>/edit" method="post">
-    <input type="hidden" value="delete" name="_method">
-    <button class="button" name="button">Delete Account</button>
+    <div class="edit-button-wrapper">
+      <button class="button">Submit Changes</button>
+    </div>
+
   </form>
 
-</form>
+  <form class="edit-button-wrapper" action="/profile/<%= @user_edit.id %>/edit" method="post">
+    <input type="hidden" value="delete" name="_method">
+    <button class="delete-button" name="button">Delete Account</button>
+  </form>
+
+</div>
