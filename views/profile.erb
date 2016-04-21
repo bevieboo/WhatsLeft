@@ -12,14 +12,15 @@
     <div class="user-info-wrap">
       <h2 class="greeting">Hey, <%= @user_profile.first.first_name %></h2>
       <div>
-        <form class="edit-form" action="/profile/<%= @user_profile.first.id %>" method="post">
-          <input type="hidden" value="put" name="_method">
+        <form class="edit-form" action="/profile/<%= @user_profile.first.id %>/edit" method="get">
           <button class="edit-button">Edit Profile</button>
         </form>
+        <a href="/recipes/new" class="add-button">Add a recipe</a>
       </div>
-      <li><a href="/recipes/new">Add a recipe</a></li>
-      <li>Count of recipes made</li>
-      <li>List of Recipes made</li>
+      <div class="user-info-inner-wrap">
+        <li>You have contributed <%= Recipe.where(user_id: @user_profile.first.id).count %> recipes!</li>
+        <li>List of Recipes made</li>
+      </div>
     </div>
   </ul>
 

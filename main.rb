@@ -22,7 +22,6 @@ helpers do
     !!current_user
     # Will return true if there is a user logged in.
   end
-
 end
 
 after do
@@ -31,6 +30,33 @@ end
 
 get '/' do
   erb :index
+end
+
+get '/profile/:id/edit' do
+  @user_edit = User.find_by(id: params[:id])
+  erb :edit_profile
+end
+
+put '/profile/:id/edit' do
+  user = User.find_by(id: params[:id])
+  user.first_name = params[:first_name]
+  user.last_name = params[:last_name]
+  user.img_url = params[:img_url]
+  if params[:password] == params[:password_confirmation]
+    if !params[:password].empty?
+      user.password = params[:password]
+    end
+  end
+  user.save
+  redirect to "/profile/#{ params[:id] }"
+  # erb :edit_profile
+end
+
+delete '/profile/:id/edit' do
+  user = User.find(params[:id])
+  user.destroy
+  user.save
+  redirect to '/'
 end
 
 get '/profile/:id' do

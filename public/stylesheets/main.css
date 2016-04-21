@@ -167,6 +167,9 @@ input:focus {
   border: 0;
   border-radius: 6px;
 }
+.edit-button-wrapper {
+  margin-left: 0;
+}
 
 .search-button {
   width: 49px;
@@ -313,8 +316,19 @@ input:focus {
   color: white;
 }
 
+.add-button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 4px 15px;
+  background-color: #222A3B;
+  border-radius: 6px;
+  color: white;
+  font-size: 12px;
+}
+
 .user-list {
-  width: 60%;
+  width: 45%;
   margin: 30px auto;
 }
 .avatar-wrap {
@@ -325,6 +339,10 @@ input:focus {
   margin: 0 auto;
   width: 90%;
 }
+.edit-recipe-form {
+  margin: 0 auto;
+  width: 60%;
+}
 .new-recipe-left {
   float: left;
   width: 30%;
@@ -334,6 +352,14 @@ input:focus {
   float: right;
   width: 50%;
   text-align: left;
+}
+.user-info-inner-wrap {
+  line-height: 1.6;
+}
+
+.edit-profile-form {
+  margin: 0 auto;
+  width: 50%;
 }
 
 .new-recipe-left .avatar-input {
@@ -391,10 +417,43 @@ input:focus {
   display: inline-block;
 }
 
+.first_name, .last_name {
+  width: 45%;
+  display: inline-block;
+}
+.last_name {
+  margin-left: 20px;
+}
+
 .cook-time {
   margin-left: 8%;
 }
 
 .user-list li {
   list-style: none;
+}
+
+.avatar-edit {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.profile.avatar-wrap{
+  width: 100%;
+}
+.profile-avatar-wrap-left {
+  float: left;
+  width: 30%;
+}
+.profile-avatar-wrap-right {
+  float: right;
+  width: 70%;
+  margin-top: 5%;
+}
+
+.prof-pwd {
+  width: 100%;
+  float: left;
+  margin-top: 20px;
 }
