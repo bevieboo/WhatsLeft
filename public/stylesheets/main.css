@@ -395,6 +395,21 @@ input:focus {
   background-position: center 25px;
 }
 
+.new-recipe-left {
+  float: left;
+  width: 30%;
+  margin: 0px 15px;
+}
+
+.prep-time-new, .cook-time-new {
+  width: 45%;
+  display: inline-block;
+}
+
+.cook-time-new {
+  margin-left: 9%;
+}
+
 .new-recipe-right {
   float: right;
   width: 60%;

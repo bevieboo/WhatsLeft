@@ -31,8 +31,8 @@
 <% if @recipes.length == 1 %>
 
   <div class='recipes-list'>
-    <a href="/recipes/<%= @recipes.first.id %>"> <p><%= @recipes.first.name %> </p></a>
-    <img src="<%= @recipes.first.img_url %>" alt="" class="recipe-list-img">
+    <a href="/recipes/<%= @recipes.first.id %>"> <p><%= @recipes.first.name %> </p>
+    <img src="<%= @recipes.first.img_url %>" alt="" class="recipe-list-img"></a>
     <p><a class="recipes-icon" href="/recipes/<%= @recipes.first.id %>/edit" ></a></p></br>
   </div>
 
