@@ -110,6 +110,7 @@ post '/signup' do
   #   flash.now[:error] = "Email already exists."
   # end
   if user.save
+    session[:user_id] = user.id
     redirect to '/'
   else
     @user = user
