@@ -47,7 +47,7 @@
           <% if recipe.img_url.blank? %>
             <img src="/stylesheets/images/Food-icon-green.png"  class="recipe-list-img">
           <% else %>
-            <img src="<%= recipe.img_url %>">
+            <img src="<%= recipe.img_url %>" class="recipe-list-img">
           <% end %>
           <p><a class="recipes-icon" href="/recipes/<%= recipe.id %>/edit" ></a></p></br>
         </a>
