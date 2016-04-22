@@ -219,8 +219,11 @@ end
 
 get '/results' do
   @ingredients = Ingredient.where(name: params[:search_box])
-  @ingredients_id = @ingredients.first.id
-  @results = IngredientRecipe.where(ingredient_id: @ingredients_id)
+  if !@ingredients.blank?
+    @ingredients_id = @ingredients.first.id
+    @results = IngredientRecipe.where(ingredient_id: @ingredients_id)
+  end
+
   erb :results
 end
 
