@@ -26,10 +26,10 @@
 
 </div>
 
-<h1 class=profile-title>Recipes you contributed</h1>
 
 <% if @recipes.length == 1 %>
 
+  <h1 class=profile-title>Recipes you contributed</h1>
   <div class='recipes-list'>
     <a href="/recipes/<%= @recipes.first.id %>"> <p><%= @recipes.first.name %> </p>
     <img src="<%= @recipes.first.img_url %>" alt="" class="recipe-list-img"></a>
@@ -39,6 +39,7 @@
 
 <% elsif @recipes.length > 1 %>
 
+  <h1 class=profile-title>Recipes you contributed</h1>
   <div class=recipes-list-wrap>
     <% @recipes.each do |recipe| %>
       <div class='recipes-list'>
