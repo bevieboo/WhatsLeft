@@ -410,6 +410,10 @@ input:focus {
   margin-left: 9%;
 }
 
+.profile-title {
+  margin-top: 45px;
+}
+
 .new-recipe-right {
   float: right;
   width: 60%;
