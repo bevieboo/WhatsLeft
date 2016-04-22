@@ -1,4 +1,8 @@
-
+<% if @results.blank? %>
+   <h2>Sorry, there are not recipes found.</h2>
+<% else %>
   <% @results.each do |ingredient_recipe| %>
-    <p><%= ingredient_recipe.recipe.name %></p>
+  <p><%= ingredient_recipe.recipe.name %></p>
+  <img src="<%= ingredient_recipe.recipe.img_url %>" alt="" />
   <% end %>
+<% end %>
