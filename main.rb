@@ -137,7 +137,6 @@ post '/recipes' do
   recipe = Recipe.new
   recipe.name = params[:recipe_name]
   recipe.img_url = params[:img_url]
-
   recipe.prep_time = params[:prep_time]
   recipe.cook_time = params[:cook_time]
   recipe.servings = params[:servings]
@@ -167,7 +166,7 @@ post '/recipes' do
   recipe.directions = params[:directions]
   recipe.user_id = session[:user_id]
   recipe.save
-  redirect to "/recipes"
+  redirect to "/recipes/#{ recipe.id }"
 
 end
 
