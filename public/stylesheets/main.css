@@ -364,10 +364,13 @@ input:focus {
 .info-wrap {
   float: right;
 }
-.new-recipe-left {
+.new-recipe-top {
   float: left;
-  width: 30%;
-  margin: 0px 15px;
+  width: 100%;
+}
+.recipe-img{
+  width: 100%;
+  border-radius: 10px;
 }
 .user-info-wrap {
   float: right;
@@ -387,7 +390,7 @@ input:focus {
   background-image: url('/stylesheets/images/camera.png');
   width: 100%;
   height: 123px;
-  background-size: 30%;
+  background-size: 25%;
   background-repeat: no-repeat;
   background-position: center 25px;
 }
@@ -402,12 +405,21 @@ input:focus {
   width: 50%;
   margin: 40px 40px;
 }
+.show-recipe-top2 {
+  float: left;
+  width: 100%;
+  margin-top: 3%;
+}
 
 .servings {
-  width: 45%;
+  display: inline-block;
 }
 .flash-error {
   color: red;
+}
+.recipe-info-2 {
+  width: 30%;
+  display: inline-block;;
 }
 
 .group:after {
@@ -441,9 +453,12 @@ input:focus {
   height: 12rem;
 }
 
-.prep-time, .cook-time {
-  width: 45%;
+.prep-time, .cook-time, .servings {
+  width: 25%;
   display: inline-block;
+  margin: 2%;
+}
+.cook-time, .servings {
 }
 
 .first_name, .last_name {
@@ -455,7 +470,6 @@ input:focus {
 }
 
 .cook-time {
-  margin-left: 8%;
 }
 
 .user-list li {

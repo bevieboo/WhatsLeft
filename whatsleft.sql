@@ -19,7 +19,8 @@ CREATE TABLE recipes (
   servings INTEGER NOT NULL,
   -- ingredients VARCHAR(5000) NOT NULL,
   directions VARCHAR(5000),
-  user_id INTEGER
+  user_id INTEGER,
+  img_url VARCHAR(1000)
 );
 
 CREATE TABLE ingredients (

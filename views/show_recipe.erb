@@ -2,31 +2,31 @@
 
 <div class="recipe-form wrap-box group">
 
-  <div class="new-recipe-left">
+  <div class="new-recipe-top">
 
     <% if @recipe.img_url.blank? %>
       <img src="/stylesheets/images/recipe_default.png"  class="default-recipe-img">
     <% else %>
-      <img src="<%= @recipe.img_url %>">
+      <img src="<%= @recipe.img_url %>" class="recipe-img">
     <% end %>
 
   </div>
 
-  <div class="show-recipe-right">
+  <div class="show-recipe-top2">
 
     <div class="prep-time">
-      <label for="">Prep Time</label>
+      <label for="">Prep Time</label></br>
       <input type="text" name="prep_time" placeholder="In minutes" class="signup-input" value="<%= @recipe.prep_time %> minutes">
     </div>
 
     <div class="cook-time">
-      <label for="">Cook Time</label>
+      <label for="">Cook Time</label></br>
       <input type="text" name="cook_time" placeholder="In minutes" class="signup-input" value="<%= @recipe.cook_time %> minutes">
     </div>
 
-    <div>
+    <div class="servings">
       <label for="">Serving Size</label></br>
-      <input type="text" name="servings" class="servings signup-input" value="<%= @recipe.servings %> servings">
+      <input type="text" name="servings" class="signup-input" value="<%= @recipe.servings %> servings">
     </div>
 
   </div>

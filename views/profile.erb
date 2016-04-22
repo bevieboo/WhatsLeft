@@ -19,18 +19,23 @@
       </div>
       <div class="user-info-inner-wrap">
         <li>You have contributed <%= Recipe.where(user_id: @user_profile.first.id).count %> recipes!</li>
-        <li>You have help reduced food wastage _ times!</li>
+        <li>You have helped reduce food wastage _ times!</li>
       </div>
     </div>
   </ul>
 
 </div>
 
+<h1>Recipes you contributed</h1>
+
 <% if @recipes.length == 1 %>
 
-  <a href="/recipes/<%= @recipes.first.id %>"> <%= @recipes.first.name %> </a>
+  <div class='recipes-list'>
+    <a href="/recipes/<%= @recipes.first.id %>"> <p><%= @recipes.first.name %> </p></a>
+    <img src="<%= @recipes.first.img_url %>" alt="" class="recipe-list-img">
+    <p><a class="recipes-icon" href="/recipes/<%= @recipes.first.id %>/edit" ></a></p></br>
+  </div>
 
-  <img src="<%= @recipes.first.img_url %>" alt="">
 
 <% elsif @recipes.length > 1 %>
 

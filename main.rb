@@ -1,11 +1,7 @@
-require 'pry'
 require 'sinatra'
-require 'sinatra/reloader'
-require 'sinatra/flash'
 require 'carrierwave'
 
 require 'active_record'
-require './console'
 require './db_config'
 require './models/user'
 require './models/ingredient'
