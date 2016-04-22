@@ -560,7 +560,8 @@ input:focus {
 .recipes-list {
   position: relative;
   display: inline-block;
-  width: 30%;
+  width: 33%;
+  float: left;
 }
 .recipe-list-img {
   width: 150px;
