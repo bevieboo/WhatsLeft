@@ -578,3 +578,12 @@ input:focus {
   top: 72%;
   left: 62%;
 }
+
+.results-list {
+  width: 60%;
+  margin: 0 auto;
+}
+.results-wrap {
+  float: left;
+  margin: 0 20px;
+}

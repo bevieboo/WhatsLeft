@@ -1,10 +1,14 @@
 <% if @results.blank? %>
-   <h2>Sorry, there are not recipes found.</h2>
+   <h1 class="results-title">Sorry, there are no recipes found.</h1>
 <% else %>
+  <h2>Recipes Found:</h2>
   <% @results.each do |ingredient_recipe| %>
-  <div class='recipes-list'>
-    <p><%= ingredient_recipe.recipe.name %></p>
-    <img src="<%= ingredient_recipe.recipe.img_url %>" alt="" class="recipe-list-img"/>
+  <div class='results-list group'>
+    <div class="results-wrap">
+      <a href="/recipes/<%= ingredient_recipe.recipe.id %>">
+      <p><%= ingredient_recipe.recipe.name %></p>
+      <img src="<%= ingredient_recipe.recipe.img_url %>" alt="" class="recipe-list-img"/></a>
+    </div>
   </div>
   <% end %>
 <% end %>
