@@ -585,5 +585,17 @@ input:focus {
 }
 .results-wrap {
   float: left;
-  margin: 0 20px;
+  margin: 20px 20px;
+  width: 25%;
+}
+.recipe-name {
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+.single-recipe-wrap {
+  position: relative;
+}
+.single-recipe {
+  top: 68%;
+  left: 55%;
 }

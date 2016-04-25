@@ -29,18 +29,21 @@
 
 <% if @recipes.length == 1 %>
 
-  <h1 class=profile-title>Recipes you contributed</h1>
-  <div class='recipes-list'>
-    <a href="/recipes/<%= @recipes.first.id %>"> <p><%= @recipes.first.name %> </p>
-    <img src="<%= @recipes.first.img_url %>" alt="" class="recipe-list-img"></a>
-    <p><a class="recipes-icon" href="/recipes/<%= @recipes.first.id %>/edit" ></a></p></br>
+  <h1 class="profile-title">Recipes you contributed</h1>
+  <div class='recipes-list-wrap group'>
+    <div class="single-recipe-wrap">
+
+      <a href="/recipes/<%= @recipes.first.id %>"> <p><%= @recipes.first.name %> </p>
+        <img src="<%= @recipes.first.img_url %>" alt="" class="recipe-list-img"></a>
+        <p><a class="recipes-icon single-recipe" href="/recipes/<%= @recipes.first.id %>/edit" ></a></p></br>
+    </div>
   </div>
 
 
 <% elsif @recipes.length > 1 %>
 
-  <h1 class=profile-title>Recipes you contributed</h1>
-  <div class=recipes-list-wrap>
+  <h1 class="profile-title">Recipes you contributed</h1>
+  <div class="recipes-list-wrap group">
     <% @recipes.each do |recipe| %>
       <div class='recipes-list'>
         <a href="/recipes/<%= recipe.id %>">

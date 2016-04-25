@@ -1,5 +1,8 @@
 require 'sinatra'
+require 'sinatra/reloader'
 require 'carrierwave'
+require 'pry'
+require './console'
 
 require 'active_record'
 require './db_config'
@@ -90,25 +93,24 @@ post '/signup' do
   user.first_name = params[:first_name]
   user.last_name = params[:last_name]
   user.img_url = params[:image]
-  user.password = params[:password]
-  user.email = params[:email]
-  # if params[:password] == params[:password_confirm]
-  #   user.password = params[:password]
+  # user.password = params[:password]
+  # user.email = params[:email]
+  if params[:password] == params[:password_confirmation]
+    user.password = params[:password]
   # else
   #   flash.now[:error2] = "Oops, that’s not the same password as the first one."
-  # end
-  # if !User.exists?(email: params[:email])
-  #   user.email = params[:email]
-  #   if user.save
-  #     redirect to '/'
-  #   else
-  #     raise 'sdfsdf'
-  #     @user = user
-  #     erb :signup
-  #   end
+  end
+  if !User.exists?(email: params[:email])
+    user.email = params[:email]
+    if user.save
+      redirect to '/'
+    else
+      @user = user
+      erb :signup
+    end
   # else
   #   flash.now[:error] = "Email already exists."
-  # end
+  end
   if user.save
     session[:user_id] = user.id
     redirect to '/'
@@ -178,6 +180,9 @@ get '/recipes/:id/edit' do
 end
 
 put '/recipes/:id' do
+  # From ingredient_recipes table, find recipe_id
+  # Delete everything in ingredient_recipes
+  # Save everything from the form again, with ingredient_recipe saved separately.
   recipe_put = Recipe.find(params[:id])
   recipe_put.name = (params[:name])
   recipe_put.img_url = (params[:img_url])
@@ -187,34 +192,36 @@ put '/recipes/:id' do
   recipe_put.directions = (params[:directions])
 
   ingredients_put = IngredientRecipe.where(recipe_id: params[:id])
+  ingredients_put.each { |x| x.destroy }
+  # ingredients_put.save
+  # ingredients_put.destroy
 
+  ingredients_new = IngredientRecipe.new
   if params[:ingredients_name].include?("\r\n")
     arr_put = params[:ingredients_name].split("\r\n")
     arr_put.each do |ingredient|
       if !Ingredient.exists?(name: ingredient)
         new_ingredient = Ingredient.create name: ingredient
-        ingredients_put.ingredients << new_ingredient
+        recipe_put.ingredients << new_ingredient
       else
         add_ingredient = Ingredient.find_by(name: ingredient)
-        recipe.ingredients << add_ingredient
+        recipe_put.ingredients << add_ingredient
       end
-
     end
 
   else
     if !Ingredient.exists?(name: params[:ingredients_name])
       new_ingredient = Ingredient.create name: params[:ingredients_name]
-      recipe.ingredients << new_ingredient
+      recipe_put.ingredients << new_ingredient
     else
       add_ingredient = Ingredient.find_by(name: params[:ingredients_name])
-      recipe.ingredients << add_ingredient
+      recipe_put.ingredients << add_ingredient
     end
   end
 
   recipe_put.save
-  ingredients_put.save
 
-  redirect to '/profile'
+  redirect to "/recipes/#{ recipe_put.id }"
 end
 
 get '/results' do
