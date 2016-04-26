@@ -1,9 +1,7 @@
-require 'sinatra'
-require 'sinatra/reloader'
-require 'carrierwave'
-require 'pry'
-require './console'
 
+
+require 'sinatra'
+require 'carrierwave'
 require 'active_record'
 require './db_config'
 require './models/user'
@@ -182,6 +180,7 @@ end
 put '/recipes/:id' do
   # From ingredient_recipes table, find recipe_id
   # Delete everything in ingredient_recipes
+  # Clean up: If ingredient only appear once in ingredient_recipes, go to ingredients table to delete record.
   # Save everything from the form again, with ingredient_recipe saved separately.
   recipe_put = Recipe.find(params[:id])
   recipe_put.name = (params[:name])
@@ -196,8 +195,12 @@ put '/recipes/:id' do
   # ingredients_put.save
   # ingredients_put.destroy
 
+  # If ingredient in ingredients table cannot be found in the ingredient_recipes table, it should be destroyed.
+
+
   ingredients_new = IngredientRecipe.new
   if params[:ingredients_name].include?("\r\n")
+    # Saving multiple ingredients to recipe
     arr_put = params[:ingredients_name].split("\r\n")
     arr_put.each do |ingredient|
       if !Ingredient.exists?(name: ingredient)
@@ -210,6 +213,7 @@ put '/recipes/:id' do
     end
 
   else
+    # Saving single ingredient to recipe
     if !Ingredient.exists?(name: params[:ingredients_name])
       new_ingredient = Ingredient.create name: params[:ingredients_name]
       recipe_put.ingredients << new_ingredient
@@ -235,3 +239,6 @@ get '/results' do
 end
 
 # binding.pry
+
+# All unique ingredients in ingredient_recipes are saved in an array called unique_records, a.k.a. all duplicates are removed:
+  # unique_records = IngredientRecipe.select(:ingredient_id).map(&:ingredient_id).uniq
