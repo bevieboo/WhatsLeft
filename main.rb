@@ -1,7 +1,3 @@
-require 'sinatra/reloader'
-require 'pry'
-require './console'
-
 require 'sinatra'
 require 'carrierwave'
 require 'active_record'
