@@ -1,4 +1,6 @@
-
+require 'sinatra/reloader'
+require 'pry'
+require './console'
 
 require 'sinatra'
 require 'carrierwave'
@@ -134,7 +136,6 @@ get '/recipes' do
 end
 
 post '/recipes' do
-  # raise params.inspect
   recipe = Recipe.new
   recipe.name = params[:recipe_name]
   recipe.img_url = params[:img_url]
@@ -191,16 +192,17 @@ put '/recipes/:id' do
   recipe_put.directions = (params[:directions])
 
   ingredients_put = IngredientRecipe.where(recipe_id: params[:id])
-  ingredients_put.each { |x| x.destroy }
-  # ingredients_put.save
-  # ingredients_put.destroy
-
-  # If ingredient in ingredients table cannot be found in the ingredient_recipes table, it should be destroyed.
-
+  ingredients_put.each do |x| # { |x| x.destroy }
+    # If ingredient in ingredients table cannot be found in the ingredient_recipes table, it should be destroyed.
+    if IngredientRecipe.where(ingredient_id: x.ingredient_id).count == 1
+      Ingredient.where(id: x.ingredient_id).first.destroy
+    end
+    x.destroy
+  end
 
   ingredients_new = IngredientRecipe.new
   if params[:ingredients_name].include?("\r\n")
-    # Saving multiple ingredients to recipe
+    # Saving multiple ingredients to ingredients
     arr_put = params[:ingredients_name].split("\r\n")
     arr_put.each do |ingredient|
       if !Ingredient.exists?(name: ingredient)
@@ -213,7 +215,7 @@ put '/recipes/:id' do
     end
 
   else
-    # Saving single ingredient to recipe
+    # Saving single ingredient to ingredients
     if !Ingredient.exists?(name: params[:ingredients_name])
       new_ingredient = Ingredient.create name: params[:ingredients_name]
       recipe_put.ingredients << new_ingredient
