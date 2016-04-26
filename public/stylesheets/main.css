@@ -428,6 +428,7 @@ input:focus {
   float: left;
   width: 100%;
   margin-top: 3%;
+  text-align: center;
 }
 
 .servings {
@@ -476,6 +477,7 @@ input:focus {
   width: 25%;
   display: inline-block;
   margin: 2%;
+  text-align: left;
 }
 .cook-time, .servings {
 }
@@ -550,8 +552,9 @@ input:focus {
   line-height: 1.5;
 }
 .ingredient-list ul {
-  padding-left: 20px;
-  line-height: 1.5;
+  padding-left: 0px;
+  line-height: 2.0;
+  list-style: none;
 }
 .recipes-list-wrap {
   width: 60%;

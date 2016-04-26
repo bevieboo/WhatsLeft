@@ -49,7 +49,7 @@ put '/profile/:id/edit' do
   end
   user.save
   redirect to "/profile/#{ params[:id] }"
-  # erb :edit_profile
+  # After user has been saved, an id will be created, which is why params[:id] can be used to redirect to the recipe page.
 end
 
 delete '/profile/:id/edit' do
@@ -231,11 +231,22 @@ put '/recipes/:id' do
 end
 
 get '/results' do
-  @ingredients = Ingredient.where(name: params[:search_box])
-  if !@ingredients.blank?
-    @ingredients_id = @ingredients.first.id
-    @results = IngredientRecipe.where(ingredient_id: @ingredients_id)
+  @search = params[:search_box]
+  @results_recipe_id = []
+
+  if !@search.blank?
+    @results = Ingredient.where("name like ?", "%#{@search}%")
+    @results.each do |x|
+      @results_recipe_id << IngredientRecipe.where(ingredient_id: x.id)
+    end
   end
+
+  @results_unique = @results_recipe_id.uniq{|x| x[0].recipe_id}
+  # @ingredients = Ingredient.where(name: params[:search_box])
+  # if !@ingredients.blank?
+  #   @ingredients_id = @ingredients.first.id
+  #   @results = IngredientRecipe.where(ingredient_id: @ingredients_id)
+  # end
 
   erb :results
 end

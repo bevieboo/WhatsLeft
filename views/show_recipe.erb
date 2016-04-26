@@ -34,13 +34,13 @@
   <div class="recipe-info-wrap">
     <div class="ingredient-list">
       <h3>Ingredients</h3>
+      <ul>
       <% @ingredients.each do |ingredient| %>
-        <ul>
           <li>
             <%= ingredient.ingredient.name %>
           </li>
-        </ul>
       <% end  %>
+    </ul>
     </div>
     <div class="direction-list">
       <h3>Preparation</h3>
