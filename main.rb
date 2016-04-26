@@ -233,15 +233,29 @@ end
 get '/results' do
   @search = params[:search_box]
   @results_recipe_id = []
+  @results = Ingredient.where("name like ?", "%#{@search}%")
 
   if !@search.blank?
-    @results = Ingredient.where("name like ?", "%#{@search}%")
-    @results.each do |x|
-      @results_recipe_id << IngredientRecipe.where(ingredient_id: x.id)
+    if @results.count > 1
+      @results.each do |x|
+        array_1 = IngredientRecipe.where(ingredient_id: x.id)
+        array_1.each do |x|
+          @results_recipe_id << x
+        end
+        # @results_recipe_id << IngredientRecipe.where(ingredient_id: x.id)
+      end
+    elsif @results.count == 1
+      @arr = IngredientRecipe.where(ingredient_id: @results[0].id)
+      @arr.each do |x|
+        @results_recipe_id << x
+      end
+
+
+      # @results_recipe_id << IngredientRecipe.where(ingredient_id: @results[0].id)
     end
   end
 
-  @results_unique = @results_recipe_id.uniq{|x| x[0].recipe_id}
+  @results_unique = @results_recipe_id.uniq{|x| x.recipe_id}
   # @ingredients = Ingredient.where(name: params[:search_box])
   # if !@ingredients.blank?
   #   @ingredients_id = @ingredients.first.id

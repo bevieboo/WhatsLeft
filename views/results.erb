@@ -5,9 +5,9 @@
   <div class='results-list group'>
   <% @results_unique.each do |ingredient_recipe| %>
     <div class="results-wrap">
-      <a href="/recipes/<%= ingredient_recipe[0].recipe.id %>">
-      <img src="<%= ingredient_recipe[0].recipe.img_url %>" alt="" class="recipe-list-img"/>
-      <p class="recipe-name"><%= ingredient_recipe[0].recipe.name %></p>
+      <a href="/recipes/<%= ingredient_recipe.recipe.id %>">
+      <img src="<%= ingredient_recipe.recipe.img_url %>" alt="" class="recipe-list-img"/>
+      <p class="recipe-name"><%= ingredient_recipe.recipe.name %></p>
       </a>
     </div>
   <% end %>
