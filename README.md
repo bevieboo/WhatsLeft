@@ -8,7 +8,7 @@ This is a CRUD app.
 
 <img src="http://i.imgur.com/GkFvpnI.png" width="500">
 
-[Click here to view website](https://whatsleftwhatsright.herokuapp.com/)
+[Click here to view website](http://i.imgur.com/gbjh0AT.jpg?1)
 
 ## Technologies used
 
